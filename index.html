@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/output.css" />
+    <style>
+        body{
+           background-color: #6ec4cf;
+        }
+        .bg{
+            background-color: #365a50;
+           border-radius: 40px;
+            
+        }
+    </style>
+  </head>
+  <body>
+    <div
+      class="d-block mx-auto text-white bg"
+      style="height: 400px; width: 600px; margin-top: 80px"
+    >
+    <div>
+        <div class="p-3  ">
+            <h1 class="text-center">Total Calculator</h1>
+            <div class="form-floating ms-5 text-black d-inline-block mt-4">
+              <input
+                type="number"
+                id="quantity"
+                class="w- form-control"
+                placeholder="Quantity of product"
+              />
+              <label for="quantity text-black"> Quantity of product</label>
+            </div>
+            <div class="form-floating text-black ms-4 d-inline-block mt-4">
+              <input
+                type="number"
+                id="price"
+                class="form-control"
+                placeholder="Price of product"
+              />
+              <label for="price text-black"> Price of product</label>
+            </div>
+            <button class="btn border mt-3 ms-5 text-white" id="calc">Calculate</button>
+            <div class="ms-5 mt-3">
+                <span>RESULT :</span><span id="result"></span>
+            </div>
+            <div class="ms-5 mt-3">
+                <button class="btn border text-white px-3" id="store">Store</button>
+                <button class="btn border text-white ms-3 px-3" id="clear">Clear</button>
+            </div>
+         <h6 class="ms-5 mt-3 " style="text-decoration: underline;">List of amount</h6>
+         <ul id="results" class="ms-5 mt-4 text-white">
+    
+         </ul>
+          </div>
+    </div>
+    </div>
+
+    <script>
+        const quantity = document.getElementById("quantity");
+        const pirce = document.getElementById("price");
+        const calc = document.getElementById("calc");
+        const store = document.getElementById("store");
+        const clear = document.getElementById("clear");
+        const result = document.getElementById("result");
+        const results = document.getElementById("results");
+
+
+
+        calc.onclick = ()=>{
+            let Calculator = quantity.value * price.value;
+            result.innerText = `${Calculator}`;
+            quantity.value=price.value=null;
+        }
+ 
+
+    store.onclick = ()=>{
+if( result.innerText === ""){
+    window.alert("plaease calculate First")
+}else{
+    results.innerHTML +=`<li> ${result.innerText}</li>`;
+   result.innerText = null;
+}
+    clear.onclick = ()=>{
+   result.innerText = null;
+
+    }
+
+}
+    
+
+    </script>
+  </body>
+</html>
